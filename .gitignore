@@ -1,6 +1,7 @@
 # APKs belong in GitHub Release assets, never in Git history.
 *.apk
 *.aab
+*.bsdiff
 
 # Local signing and release secrets
 *.jks
@@ -16,4 +17,3 @@ SHA256SUMS
 
 # Local machine state
 .DS_Store
-

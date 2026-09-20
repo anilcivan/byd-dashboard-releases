@@ -4,13 +4,19 @@ The updater consumes `release.json` from the latest non-draft, non-prerelease Gi
 
 ```json
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "applicationId": "com.byd.dashboard",
-  "versionCode": 2,
-  "versionName": "0.2.0",
-  "apkAsset": "byd-dashboard-0.2.0-arm64-v8a.apk",
-  "sha256": "lowercase-hex-sha256",
+  "versionCode": 5,
+  "versionName": "0.2.3",
+  "outputSha256": "target-apk-lowercase-hex-sha256",
+  "outputSize": 67123456,
   "minimumAndroidSdk": 25,
+  "patches": [{
+    "baseVersionCode": 4,
+    "baseSha256": "base-apk-lowercase-hex-sha256",
+    "patchAsset": "byd-dashboard-0.2.2-to-0.2.3.bsdiff",
+    "patchSha256": "patch-lowercase-hex-sha256"
+  }],
   "mandatory": false,
   "publishedAt": "2026-09-20T00:00:00Z",
   "notes": {
@@ -24,8 +30,8 @@ Rules:
 
 1. `applicationId` must remain `com.byd.dashboard`.
 2. `versionCode` must increase for every published update.
-3. `apkAsset` must exactly match one APK asset in the same GitHub Release.
-4. `sha256` is calculated from the final signed APK.
-5. A release is published only after every asset is uploaded and verified.
-6. Drafts and prereleases are never offered to the vehicle unless a future opt-in beta channel explicitly enables them.
-
+3. Every `patchAsset` must exactly match one `.bsdiff` asset in the same GitHub Release.
+4. `baseSha256`, `patchSha256`, and `outputSha256` are mandatory and calculated from the exact binary files.
+5. Full APK files must never be uploaded to the public repository or its GitHub Releases.
+6. A release is published only after every asset is uploaded and verified.
+7. Drafts and prereleases are never offered to the vehicle unless a future opt-in beta channel explicitly enables them.
