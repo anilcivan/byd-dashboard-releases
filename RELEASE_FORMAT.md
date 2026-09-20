@@ -6,17 +6,17 @@ The updater consumes `release.json` from the latest non-draft, non-prerelease Gi
 {
   "schemaVersion": 3,
   "applicationId": "com.byd.dashboard",
-  "versionCode": 5,
-  "versionName": "0.2.3",
+  "versionCode": 2,
+  "versionName": "0.1.1",
   "outputSha256": "target-apk-lowercase-hex-sha256",
   "outputSize": 67123456,
   "targetCertificateSha256": "release-signing-certificate-lowercase-hex-sha256",
   "minimumAndroidSdk": 25,
   "patches": [{
-    "baseVersionCode": 4,
-    "baseVersionName": "0.2.2",
+    "baseVersionCode": 1,
+    "baseVersionName": "0.1.0",
     "baseSha256": "base-apk-lowercase-hex-sha256",
-    "patchAsset": "byd-dashboard-0.2.2-to-0.2.3.bsdiff",
+    "patchAsset": "byd-dashboard-0.1.0-to-0.1.1.bsdiff",
     "patchSha256": "patch-lowercase-hex-sha256"
   }],
   "mandatory": false,
