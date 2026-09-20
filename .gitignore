@@ -1,0 +1,19 @@
+# APKs belong in GitHub Release assets, never in Git history.
+*.apk
+*.aab
+
+# Local signing and release secrets
+*.jks
+*.keystore
+*.p12
+*.pem
+keystore.properties
+.env
+
+# Generated release metadata
+release.json
+SHA256SUMS
+
+# Local machine state
+.DS_Store
+

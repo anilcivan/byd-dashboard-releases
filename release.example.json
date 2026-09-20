@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "applicationId": "com.byd.dashboard",
+  "versionCode": 2,
+  "versionName": "0.2.0",
+  "apkAsset": "byd-dashboard-0.2.0-arm64-v8a.apk",
+  "sha256": "replace-with-lowercase-hex-sha256",
+  "minimumAndroidSdk": 25,
+  "mandatory": false,
+  "publishedAt": "2026-09-20T00:00:00Z",
+  "notes": {
+    "tr": "İlk kontrollü OTA yayını",
+    "en": "First controlled OTA release"
+  }
+}
