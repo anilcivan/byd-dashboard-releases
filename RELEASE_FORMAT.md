@@ -4,15 +4,17 @@ The updater consumes `release.json` from the latest non-draft, non-prerelease Gi
 
 ```json
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "applicationId": "com.byd.dashboard",
   "versionCode": 5,
   "versionName": "0.2.3",
   "outputSha256": "target-apk-lowercase-hex-sha256",
   "outputSize": 67123456,
+  "targetCertificateSha256": "release-signing-certificate-lowercase-hex-sha256",
   "minimumAndroidSdk": 25,
   "patches": [{
     "baseVersionCode": 4,
+    "baseVersionName": "0.2.2",
     "baseSha256": "base-apk-lowercase-hex-sha256",
     "patchAsset": "byd-dashboard-0.2.2-to-0.2.3.bsdiff",
     "patchSha256": "patch-lowercase-hex-sha256"
@@ -29,10 +31,11 @@ The updater consumes `release.json` from the latest non-draft, non-prerelease Gi
 Rules:
 
 1. `applicationId` must remain `com.byd.dashboard`.
-2. `versionCode` must increase for every published update.
-3. Every `patchAsset` must exactly match one `.bsdiff` asset in the same GitHub Release.
-4. `baseSha256`, `patchSha256`, and `outputSha256` are mandatory and calculated from the exact binary files.
-5. Full APK files must never be uploaded to the public repository or its GitHub Releases.
-6. A release is published only after every asset is uploaded and verified.
-7. Drafts and prereleases are never offered to the vehicle unless a future opt-in beta channel explicitly enables them.
-8. A version installed manually by USB may be published as a baseline with an empty `patches` array. Its exact signed APK must be retained privately so the next OTA delta can use it as its base.
+2. The clean OTA epoch starts with private USB bootstrap `0.1.0`, Android `versionCode 1`; every later target increments the code exactly once.
+3. Every supported archived base APK must have a direct patch to the newest target in the same GitHub Release.
+4. Every `patchAsset` must exactly match one `.bsdiff` asset in the same GitHub Release.
+5. `baseSha256`, `patchSha256`, `outputSha256`, and `targetCertificateSha256` are mandatory and calculated from exact archived artifacts.
+6. The exact bytes of `release.json` must verify against `release.sig` using the ECDSA P-256 public key pinned in the bootstrap app.
+7. Full APK files must never be uploaded to the public repository or its GitHub Releases.
+8. A release is published only after every patch reconstructs the target APK byte-for-byte and every uploaded asset is downloaded and verified.
+9. Drafts and prereleases are never offered to the vehicle unless a future opt-in beta channel explicitly enables them.

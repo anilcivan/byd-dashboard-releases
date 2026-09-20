@@ -7,13 +7,13 @@ Bu depo yalnız BYD Dashboard delta güncellemelerini dağıtmak için kullanıl
 ## Trust model / Güven modeli
 
 - Full APK files are never uploaded. Releases contain only BSDIFF patches and metadata.
-- OTA releases include `release.json`, one or more `.bsdiff` assets and `SHA256SUMS`. A USB baseline release contains metadata and checksums only; its signed APK remains private.
-- The Android client verifies the base APK, patch, reconstructed target APK and signing certificate before opening the system installer.
+- OTA releases include a direct `.bsdiff` from every supported base, plus `release.json`, `release.sig`, and `SHA256SUMS`. The USB bootstrap APK remains private and is not a public release asset.
+- The Android client verifies the signed manifest, exact base APK, patch, reconstructed target APK and signing certificate before opening the system installer.
 - Signing keys, Mapbox tokens, vehicle logs and databases never belong in this repository.
 
 - Tam APK dosyaları yüklenmez. Yayınlar yalnız BSDIFF patch ve metadata içerir.
-- OTA yayınları `release.json`, bir veya daha fazla `.bsdiff` ve `SHA256SUMS` içerir. USB temel sürümü yalnız metadata ve checksum içerir; imzalı APK'sı özel olarak saklanır.
-- Android istemcisi kurulum ekranından önce temel APK'yı, patch'i, yeniden oluşturulan hedef APK'yı ve imza sertifikasını doğrular.
+- OTA yayınları desteklenen her temelden doğrudan `.bsdiff` ile birlikte `release.json`, `release.sig` ve `SHA256SUMS` içerir. USB temel APK'sı özel kalır ve public yayın varlığı olmaz.
+- Android istemcisi kurulum ekranından önce imzalı manifesti, kesin temel APK'yı, patch'i, yeniden oluşturulan hedef APK'yı ve imza sertifikasını doğrular.
 - İmza anahtarları, Mapbox token'ları, araç logları ve veritabanları bu depoya konmaz.
 
 ## Release assets / Yayın dosyaları
@@ -21,6 +21,7 @@ Bu depo yalnız BYD Dashboard delta güncellemelerini dağıtmak için kullanıl
 ```text
 byd-dashboard-<base>-to-<version>.bsdiff
 release.json
+release.sig
 SHA256SUMS
 ```
 

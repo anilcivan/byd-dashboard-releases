@@ -1,13 +1,15 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "applicationId": "com.byd.dashboard",
   "versionCode": 5,
   "versionName": "0.2.3",
   "outputSha256": "replace-with-target-apk-lowercase-hex-sha256",
   "outputSize": 67123456,
+  "targetCertificateSha256": "replace-with-release-signing-certificate-lowercase-hex-sha256",
   "minimumAndroidSdk": 25,
   "patches": [{
     "baseVersionCode": 4,
+    "baseVersionName": "0.2.2",
     "baseSha256": "replace-with-base-apk-lowercase-hex-sha256",
     "patchAsset": "byd-dashboard-0.2.2-to-0.2.3.bsdiff",
     "patchSha256": "replace-with-patch-lowercase-hex-sha256"
