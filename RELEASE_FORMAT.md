@@ -35,3 +35,4 @@ Rules:
 5. Full APK files must never be uploaded to the public repository or its GitHub Releases.
 6. A release is published only after every asset is uploaded and verified.
 7. Drafts and prereleases are never offered to the vehicle unless a future opt-in beta channel explicitly enables them.
+8. A version installed manually by USB may be published as a baseline with an empty `patches` array. Its exact signed APK must be retained privately so the next OTA delta can use it as its base.
